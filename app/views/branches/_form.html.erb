@@ -1,0 +1,28 @@
+<%= form_with(model: branch) do |form| %>
+  <% if branch.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(branch.errors.count, "error") %> No se puede guardar la sucursal:</h2>
+      <ul>
+        <% branch.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :name, class:"form-control", placeholder:"Nombre" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :address, class:"form-control", placeholder:"Direccion" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :phone, class:"form-control", placeholder:"Telefono" %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-outline-success" %>
+  </div>
+<% end %>

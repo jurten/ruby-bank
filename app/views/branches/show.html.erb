@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @branch.name%></h1>
+  <p class="lead"> direccion: <%= @branch.address%> | <%= @branch.phone%> </p>
+  <hr class="my-4">
+  <p class="lead">
+    <%= link_to "Editar", edit_branch_path(@branch), class:"btn btn-outline-primary" %>
+    <%= link_to "Eliminar", @branch, method: :delete, class:"btn btn-outline-danger"%>
+    <%= link_to "Volver", branches_path, class:"btn btn-outline-secondary"%>
+  </p>
+</div>
