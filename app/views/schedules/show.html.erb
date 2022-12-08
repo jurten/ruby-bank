@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @schedule %>
-
-<div>
-  <%= link_to "Edit this schedule", edit_schedule_path(@schedule) %> |
-  <%= link_to "Back to schedules", schedules_path %>
-
-  <%= button_to "Destroy this schedule", @schedule, method: :delete %>
+<div class="jumbotron">
+  <h1 class="display-4"><%= Schedule.i_to_days @schedule.day %></h1>
+  <p class="lead"> Horario: <%= @schedule.start.strftime "%H:%M"%> a <%= @schedule.finish.strftime "%H:%M" %></p>
+  <hr class="my-4">
+  <p class="lead">
+    <%= link_to "Editar", edit_schedule_path(@schedule), class:"btn btn-outline-primary" %>
+    <%= link_to "Eliminar", @schedule, method: :delete, data: { turbo_method: "delete", confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+    <%= link_to "Volver", branches_path, class:"btn btn-outline-secondary"%>
+  </p>
 </div>
+
