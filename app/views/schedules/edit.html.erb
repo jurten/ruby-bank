@@ -1,10 +1,10 @@
-<h1>Editando Horario</h1>
-
-<%= render "form", schedule: @schedule %>
-
-<br>
-
-<div>
-  <%= link_to "Ver", @schedule, class:"btn btn-outline-primary"%> 
-  <%= link_to "Volver", branches_path, class:"btn btn-outline-secondary"%>
+<div class="d-flex justify-content-center flex-nowrap">
+  <div class="card " style="width: 18rem;">
+    <div class="card-body">
+      <h2 class="card-title">Editando Horario</h2>
+      <p class="card-text"><%= render "form", schedule: @schedule %></p>
+      <%= link_to "Ver", @schedule, class:"btn btn-outline-primary"%> 
+      <%= link_to "Volver", schedules_path, class:"btn btn-outline-secondary"%>
+    </div>
+  </div>
 </div>

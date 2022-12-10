@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+  enum role: [:client, :admin, :staff]
+  validates :branch, presence: true, if: :staff?
+  validates :branch, absence: true, if: :admin?
+  validates :branch, absence: true, if: :client?
+  #validate email and password presence on create write the error messages in spanish
+  validates :email, presence: { message: "El correo electrónico es obligatorio" },on: :create
+  validates :password, presence: { message: "La contraseña es obligatoria" },on: :create
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

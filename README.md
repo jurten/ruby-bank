@@ -1,24 +1,13 @@
-# README
+# Aplicacion de turnos de banco para Ruby TTPS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Autor: Joaquin Ignacio Olmos | Legajo: 18707/4
 
-Things you may want to cover:
+## Manual de instalacion:
 
-* Ruby version
+__Prerequisitos__
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+- Ruby version 3.0.4
+- Ruby on rails gem 7.0.4 (gem install rails)
+- MySql DBMS y crear una database llamada 
+```
