@@ -25,17 +25,14 @@ User.create!(email: 'admin@admin.com', password: '123456', password_confirmation
   User.create!(email: Faker::Internet.email, password: "password", password_confirmation: "password", role: 1)
 end
 
-#make 10 users that are staff and assign them to a random branch
 10.times do
   User.create!(email: Faker::Internet.email, password: "password", password_confirmation: "password", role: 2, branch_id: Branch.all.ids.sample)
 end
 
-#make 10 users that are customers
 10.times do
   User.create!(email: Faker::Internet.email, password: "password", password_confirmation: "password", role: 0)
 end
 
-#make 20 turns and assign them to a random branch and a random user, the turns are assigned to a datetime that is available in the branch
 Branch.all.each do |branch|
   2.times do
     schedule = branch.schedules.all.sample
