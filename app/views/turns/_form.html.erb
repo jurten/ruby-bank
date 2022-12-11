@@ -16,17 +16,17 @@
     <%= form.collection_select :branch_id, Branch.all, :id, :name, include_blank: false, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="field form-group">
     <%= form.label :date, style: "display: block" %>
     <%= form.datetime_field :date %>
   </div>
 
-  <div>
+  <div class="field form-group">
     <%= form.label :reason, style: "display: block" %>
     <%= form.text_field :reason %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn-success" %>
   </div>
 <% end %>

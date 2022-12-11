@@ -11,6 +11,15 @@ class Turn < ApplicationRecord
 
   validate :date_is_within_branch_hours
 
+  validate :date_is_not_in_the_past
+  
+  def date_is_not_in_the_past
+    if date.present?
+      if date < Date.today
+        errors.add(:date, "La fecha no puede ser en el pasado")
+      end
+    end
+  end
 
   def status_to_s
     case self[:status]
@@ -23,11 +32,11 @@ class Turn < ApplicationRecord
     end
   end
 
-  #make a method that returns a boolean if the turn is within the branch hours
+  #make a method that returns true if the turn datetime is within the branch schedule
   def date_is_within_branch_hours
     if branch
-      if !branch.day_is_within_branch_hours? date.wday, date.strftime("%H:%M")
-        errors.add(:date, "La fecha no esta dentro del horario de la sucursal")
+      unless branch.day_is_within_branch_hours?(date.wday, date.strftime("%H:%M"))
+        errors.add(:date, "La fecha no se encuentra dentro del horario de atención de la sucursal")
       end
     end
   end

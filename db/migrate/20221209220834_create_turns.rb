@@ -5,7 +5,7 @@ class CreateTurns < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.datetime :date
       t.string :reason
-      t.integer :status, default: 0
+      t.integer :status, default: 0, null: false
       t.text :comment
       t.references :staff, null: true, foreign_key: { to_table: :users }
 

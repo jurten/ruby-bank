@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @turn %>
-
-<div>
-  <%= link_to "Edit this turn", edit_turn_path(@turn) %> |
-  <%= link_to "Back to turns", turns_path %>
-
-  <%= button_to "Destroy this turn", @turn, method: :delete %>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @turn.status_to_s %></h1>
+  <p class="lead"> Cliente: <%= @turn.user.email %> </p>
+  <p class="lead"> Sucursal: <%= @turn.branch.name %> </p>
+  <p class="lead"> Motivo: <%= @turn.reason %> </p>
+  <p class="lead"> Fecha: <%= @turn.date.strftime("%d/%m/%Y")%> <%= @turn.date.strftime("%H:%M") %></p>
+  <p class="lead"> Hora: <%= @turn.date.strftime("%H:%M") %></p>
+  <p class="lead"> Empleado: <%= @turn.staff %> </p>
+  <hr class="my-4">
+  <p class="lead">
+    <%= link_to "Editar", edit_turn_path(@turn), class:"btn btn-outline-primary" %>
+    <%= link_to "Eliminar", @turn, method: :delete, data: { turbo_method: "delete", confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+    <%= link_to "Volver", turns_path, class:"btn btn-outline-secondary"%>
+  </p>
 </div>
+

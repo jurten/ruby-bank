@@ -18,6 +18,9 @@
       <li class="nav-item">
         <%= link_to "Turnos", turns_path, class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <%= link_to "Usuarios", users_path, class: "nav-link" %>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <div>
@@ -25,6 +28,9 @@
       </div>
       <div>
         <%= link_to "Iniciar Sesion", new_user_session_path, class: "btn btn-danger" %>
+      </div>
+      <div>
+        <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
       </div>
     </form>
   </div>

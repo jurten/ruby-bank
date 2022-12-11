@@ -1,5 +1,5 @@
 class Schedule < ApplicationRecord
-  enum days: [ :Lunes, :Martes, :Miercoles, :Jueves, :Viernes, :Sabado, :Domingo ]
+  enum days: [ :Domingo, :Lunes, :Martes, :Miercoles, :Jueves, :Viernes, :Sabado ]
 
   def self.i_to_days num
     days.invert[num]
