@@ -12,6 +12,12 @@ class User < ApplicationRecord
     end
   end
 
+  #make a method that return the branch name of the user using a integer pass as parameter
+  def branch_name(branch_id)
+    Branch.find(branch_id).name
+  end
+
+
   validates :branch_id, presence: true, if: :staff?
   validates :branch_id, absence: true, if: :admin?
   validates :branch_id, absence: true, if: :client?

@@ -16,13 +16,22 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # GET /staff/new
+  def staff_new
+    @user = User.new
+  end
+
+  # GET /admin/new
+  def admin_new
+    @user = User.new
+  end
+
   # GET /users/1/edit
   def edit
   end
 
   # POST /users or /users.json
   def create
-    puts "user_params: #{user_params}"
     if user_params[:branch_id] != nil
         user_data = user_params.merge({:role => "staff"})
       else

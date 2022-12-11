@@ -1,17 +1,15 @@
 <%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
+  <% if @user.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-        <% user.errors.each do |error| %>
+        <% @user.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-      <div class="card bg-danger " style="width: 20rem">
-        <div class="card-body">
           <div class="field">
             <%= form.label :email %><br/>
             <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -34,14 +32,10 @@
             <%= form.collection_select :branch_id, Branch.all, :id, :name, class: "form-control" %>
           </div>
 
-          <div class="card bg-danger ">
-            <div class="list-group list-group-flush d-flex">
-              <%= form.submit "Confirmar", class: "list-group-item bg-danger" %>
-              <%= link_to "Volver", users_path, class: "list-group-item bg-danger", style: "text-align:center" %>
-            </div>
+          <div>
+              <%= form.submit "Confirmar", class: "btn btn-success" %>
+              <%= link_to "Volver", users_path, class: "btn btn-secondary" %>
           </div>
-        </div>
-      </div>
     </div>
   </div>
 <% end %>

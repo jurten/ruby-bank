@@ -1,10 +1,11 @@
-<h1>Editing user</h1>
+<div class="container">
+<br>
+<h1>Editando <%= @user.email %></h1>
 
-<%= render "form_staff", user: @user %>
-
+<%= render "edit", user: @user %>
 <br>
 
 <div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to "Volver al Listado", users_path, class:"btn btn-outline-secondary" %>
+</div>
 </div>
