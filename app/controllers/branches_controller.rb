@@ -50,11 +50,16 @@ class BranchesController < ApplicationController
 
   # DELETE /branches/1 or /branches/1.json
   def destroy
-    @branch.destroy
-
-    respond_to do |format|
-      format.html { redirect_to branches_url, notice: "Branch was successfully destroyed." }
-      format.json { head :no_content }
+    if @branch.turns.where(status: :pending).empty?
+      @branch.turns.where.not(status: :pending).destroy_all
+      name=@branch.name
+      @branch.destroy
+      respond_to do |format|
+        format.html { redirect_to branches_url, notice: "Sucursal #{name} borrada" }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to branches_url, notice: "La sucursal no puede ser borrada, hay turnos pendientes"
     end
   end
 

@@ -1,11 +1,18 @@
 <div class="container">
 <br>
 <h1>Editando <%= @user.email %></h1>
-
-<%= render "edit", user: @user %>
+<% if current_user == @user %>
+  <%= render "edit_mine", user: @user %>
+<% else %>
+  <%= render "edit", user: @user %>
+<% end %>
 <br>
 
 <div>
-  <%= link_to "Volver al Listado", users_path, class:"btn btn-outline-secondary" %>
+  <% if current_user == @user %>
+    <%= link_to "Volver Al Inicio", root_path, class:"btn btn-secondary" %>
+  <% else %>
+    <%= link_to "Volver", users_path, class:"btn btn-outline-secondary" %>
+  <% end %>
 </div>
 </div>

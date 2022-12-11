@@ -12,8 +12,10 @@
   </p>
   <hr class="my-4">
   <p class="lead">
+  <% if can? :manage, @branch %>
     <%= link_to "Editar", edit_branch_path(@branch), class:"btn btn-outline-primary" %>
     <%= link_to "Eliminar", @branch, method: :delete, data: { turbo_method: "delete", confirm: 'Estas seguro?' }, class:"btn btn-outline-danger" %>
+  <% end %>
     <%= link_to "Volver", branches_path, class:"btn btn-outline-secondary"%>
   </p>
 </div>

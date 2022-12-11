@@ -18,11 +18,17 @@
           <td><%= turn.branch.name %></td>
           <td><%= turn.user.email %></td>
           <td><%= turn.date.strftime("%d/%m/%Y")%> <%= turn.date.strftime("%H:%M") %></td>
-          <td><%= turn.staff %></td>
+          <% if turn.staff.nil? %>
+            <td> No Atendido </td>
+          <% else %>
+            <td><%= turn.staff.email %></td>
+          <% end %>
           <td><%= turn.status_to_s %></td>
         <td>
           <%= link_to "Ver", turn, class: "btn btn-outline-info" %>
-          <%= link_to "Comentar", edit_turn_path(turn), class: "btn btn-outline-primary" %>
+          <% if current_user.role == "admin" %>
+            <%= link_to "Editar", edit_turn_path(turn), class: "btn btn-outline-primary" %>
+          <% end %>
         </td>
         <% end %>
       </tr>

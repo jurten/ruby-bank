@@ -6,11 +6,23 @@
   <p class="lead"> Motivo: <%= @turn.reason %> </p>
   <p class="lead"> Fecha: <%= @turn.date.strftime("%d/%m/%Y")%> <%= @turn.date.strftime("%H:%M") %></p>
   <p class="lead"> Hora: <%= @turn.date.strftime("%H:%M") %></p>
-  <p class="lead"> Empleado: <%= @turn.staff %> </p>
+  <% if @turn.staff.nil? %>
+    <p class="lead"> Atendido por: No asignado </p>
+  <% else %>
+    <p class="lead"> Atendido por: <%= @turn.staff.email %> </p>
+  <% end %>
   <hr class="my-4">
   <p class="lead">
-    <%= link_to "Editar", edit_turn_path(@turn), class:"btn btn-outline-primary" %>
-    <%= link_to "Eliminar", @turn, method: :delete, data: { turbo_method: "delete", confirm: 'Estas Seguro?' }, class:"btn btn-outline-danger" %>
+  <% if can? :update, @turn %>
+    <% if current_user.role == 'admin' %>
+      <%= link_to "Editar", edit_turn_path(@turn), class:"btn btn-outline-primary" %>
+    <% else %>
+      <%= link_to "Atender", edit_turn_path(@turn), class:"btn btn-outline-primary" %>
+    <% end %>
+  <% end %>
+  <% if can? :destroy, @turn %>
+    <%= link_to "Cancelar", @turn, method: :delete, data: { turbo_method: "delete", confirm: 'Estas Seguro?' }, class:"btn btn-outline-danger" %>
+  <% end %>
     <%= link_to "Volver", turns_path, class:"btn btn-outline-secondary"%>
   </p>
 </div>

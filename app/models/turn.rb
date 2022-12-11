@@ -32,7 +32,10 @@ class Turn < ApplicationRecord
     end
   end
 
-  #make a method that returns true if the turn datetime is within the branch schedule
+  def staff_email
+    User.find(staff_id).email
+  end
+
   def date_is_within_branch_hours
     if branch
       unless branch.day_is_within_branch_hours?(date.wday, date.strftime("%H:%M"))

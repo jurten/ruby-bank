@@ -4,7 +4,7 @@ class TurnsController < ApplicationController
 
   # GET /turns or /turns.json
   def index
-    @turns = Turn.all
+    @turns = Turn.accessible_by(current_ability)
   end
 
   # GET /turns/1 or /turns/1.json
@@ -39,8 +39,13 @@ class TurnsController < ApplicationController
 
   # PATCH/PUT /turns/1 or /turns/1.json
   def update
+    turn_data = turn_params
+    if !(turn_data[:comment] == "")
+      turn_data[:status] = "finished"
+      turn_data[:staff_id] = current_user.id
+    end
     respond_to do |format|
-      if @turn.update(turn_params)
+      if @turn.update(turn_data)
         format.html { redirect_to turn_url(@turn), notice: "Turn was successfully updated." }
         format.json { render :show, status: :ok, location: @turn }
       else
