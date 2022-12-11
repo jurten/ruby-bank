@@ -5,6 +5,10 @@ class Schedule < ApplicationRecord
     days.invert[num]
   end
 
+  def self.for_day (date)
+    find_by day: days[date.wday]
+  end
+
   belongs_to :branch
   validates :day, :start, :finish, presence: true
   validates :finish, comparison: { greater_than: :start , message: ": El tiempo de finalización debe ser mayor al de inicio"}

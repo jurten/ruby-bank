@@ -37,6 +37,7 @@
             Mi Perfil 
           </button>
           <div class="dropdown-menu">
+            <p><%= link_to "Ver Perfil", current_user, class:"dropdown-item" %></p>
             <p><%= link_to "Editar Perfil", edit_user_path(current_user), class:"dropdown-item" %></p>
             <div class="dropdown-divider"></div>
             <p><%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, class: "dropdown-item" %></p>
@@ -46,7 +47,8 @@
       </div>
       <% else %>
       <div>
-        <%= link_to "Iniciar Sesion", new_user_session_path, class: "btn btn-danger" %>
+        <%= link_to "Registrate", new_user_registration_path, class: "btn btn-danger" %>
+        <%= link_to "Iniciar Sesion", new_user_session_path, class: "btn btn-light" %>
       </div>
       <% end %>
     </form>
