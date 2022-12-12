@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   enum role: [:client, :admin, :staff]
+  has_many :appointments, dependent: :destroy, foreign_key: :user_id
+  has_many :appointments, dependent: :destroy, foreign_key: :staff_id
 
   def role_to_s
     case self[:role]

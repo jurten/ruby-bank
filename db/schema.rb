@@ -30,9 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_220834) do
     t.index ["branch_id"], name: "index_schedules_on_branch_id"
   end
 
-<<<<<<< HEAD
-  add_foreign_key "schedules", "branches"
-=======
   create_table "turns", force: :cascade do |t|
     t.integer "branch_id", null: false
     t.integer "user_id", null: false
@@ -73,5 +70,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_220834) do
   add_foreign_key "turns", "users"
   add_foreign_key "turns", "users", column: "staff_id"
   add_foreign_key "users", "branches"
->>>>>>> dev
 end

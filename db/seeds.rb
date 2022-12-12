@@ -37,7 +37,9 @@ Branch.all.each do |branch|
   2.times do
     schedule = branch.schedules.all.sample
     date = DateTime.now.change(hour: schedule.start.hour + 1, min: schedule.start.min)
-    Turn.create(branch_id: branch.id, user_id: User.all.ids.sample, date: date, reason: Faker::Lorem.sentence, status: 0, comment: nil)
+    #choose a random existing user with role 0
+    user = User.where(role: 0).all.sample
+    Turn.create(branch_id: branch.id, user_id: user.id, date: date, reason: Faker::Lorem.sentence, status: 0, comment: nil)
   end
 end
 

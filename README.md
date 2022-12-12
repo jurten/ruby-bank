@@ -36,7 +36,7 @@ Tambien podemos crear una cuenta de cliente desde el boton que dice, Registrate.
 __Diseño__
 
 Uso de gemas:
-En este proyecto se usan dos gemas muy populares en el enterno de desarrollo de ruby, estas son devise y cancancan. La primera cubre la tarea de autenticacion y la segunda la de autorizacion. Decidi usar estas gemas porque sostengo que es una solucion mucho mas completa y probada que cualquier propuesta que hubiera podido hacer en el marco del tiempo de la cursada.
+En este proyecto se usan tres gemas muy populares en el entorno de desarrollo de ruby, estas son devise, cancancan y faker. La primera cumple con las tareas de autenticacion, la segunda las de autorizacion, y la ultima facilita la creacion de datos falsos para probar el sistema. Decidi usar estas gemas porque sostengo que es una solucion mucho mas completa y probada que cualquier propuesta que hubiera podido hacer en el marco del tiempo de la cursada.
 
 Uso de bootstrap:
 El uso de bootstrap en este proyecto se realizo con la finalidad de facilitar lo mas posible la tarea de diseño de interfaz, permitiendome asi entregar una aplicacion con buen aspecto y que cumpla con los requisitos de la consigna.
