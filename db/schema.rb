@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_024948) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_09_220834) do
   create_table "branches", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -30,5 +30,48 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_024948) do
     t.index ["branch_id"], name: "index_schedules_on_branch_id"
   end
 
+<<<<<<< HEAD
   add_foreign_key "schedules", "branches"
+=======
+  create_table "turns", force: :cascade do |t|
+    t.integer "branch_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "date"
+    t.string "reason"
+    t.integer "status", default: 0, null: false
+    t.text "comment"
+    t.integer "staff_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_turns_on_branch_id"
+    t.index ["staff_id"], name: "index_turns_on_staff_id"
+    t.index ["user_id"], name: "index_turns_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "role", default: 0, null: false
+    t.integer "branch_id"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_users_on_branch_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "schedules", "branches"
+  add_foreign_key "turns", "branches"
+  add_foreign_key "turns", "users"
+  add_foreign_key "turns", "users", column: "staff_id"
+  add_foreign_key "users", "branches"
+>>>>>>> dev
 end

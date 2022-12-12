@@ -1,9 +1,9 @@
-<h1>New schedule</h1>
-
-<%= render "form", schedule: @schedule %>
-
-<br>
-
-<div>
-  <%= link_to "Back to schedules", schedules_path %>
+<div class="d-flex justify-content-center flex-nowrap">
+  <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h2 class="card-title">Nuevo Horario</h2>
+      <p class="card-text"><%= render "form", schedule: @schedule %></p>
+      <%= link_to "Volver", schedules_path, class:"btn btn-outline-secondary"%>
+    </div>
+  </div>
 </div>

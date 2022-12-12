@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center flex-nowrap">
+  <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h2 class="card-title">Nuevo Turno</h2>
+      <p class="card-text"><%= render "form", turn: @turn %></p>
+      <%= link_to "Volver", turns_path, class:"btn btn-outline-secondary"%>
+    </div>
+  </div>
+</div>

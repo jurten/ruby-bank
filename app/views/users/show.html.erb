@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @user.email %></h1>
+  <p class="lead"> Rol: <%= @user.role_to_s %> </p>
+  <% if !@user.branch_id.nil? %>
+    <p class="lead"> Sucursal: <%= Branch.find_by(id:@user.branch_id).name %> </p>
+  <% end %>
+  <hr class="my-4">
+  <p class="lead">
+  <% if can? :edit, @user %>
+    <%= link_to "Editar", edit_user_path(@user), class:"btn btn-outline-primary" %>
+  <% end %>
+  <% if can? :destroy, @user %>
+    <%= link_to "Eliminar", @user, method: :delete, data: { turbo_method: "delete", confirm: 'Estas Seguro?' }, class:"btn btn-outline-danger" %>
+  <% end %>
+  <% if can? :index, User %>
+    <%= link_to "Volver", users_path, class:"btn btn-outline-secondary"%>
+  <% else %>
+    <%= link_to "Volver", root_path, class:"btn btn-outline-secondary"%>
+  <% end %>
+
+  </p>
+</div>

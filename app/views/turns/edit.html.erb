@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center flex-nowrap">
+  <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h2 class="card-title">Nuevo Turno</h2>
+      <% if current_user.role == "admin" %>
+        <p class="card-text"><%= render "edit", turn: @turn %></p>
+      <% else %>
+        <p class="card-text"><%= render "finish", turn: @turn %></p>
+      <% end %>
+      <%= link_to "Ver", @turn, class:"btn btn-info" %> 
+      <%= link_to "Volver", turns_path, class:"btn btn-secondary"%>
+    </div>
+  </div>
+</div>

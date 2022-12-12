@@ -10,22 +10,31 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="field form-group">
+      <%= form.label :start, style: "display: block" %>
+      <%= form.time_field :start %>
+    </div>
 
-  <div>
-    <%= form.label :start, style: "display: block" %>
-    <%= form.time_field :start %>
+    <div class="field form-group">
+      <%= form.label :finish, style: "display: block" %>
+      <%= form.time_field :finish %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field form-group">
+      <%= form.label :day, style: "display: block" %>
+      <%= form.select :day, options_for_select([["Domingo", 0], ["Lunes", 1], ["Martes", 2], ["Miércoles", 3], ["Jueves", 4], ["Viernes", 5], ["Sábado", 6]]) %>
+    </div>
+    
+    <div class="field form-group">
+      <%= form.label :branch, style: "display: block" %>
+      <%= form.collection_select :branch_id, Branch.all, :id, :name, include_blank: false, class: "form-control" %>
+    </div>
   </div>
 
   <div>
-    <%= form.label :finish, style: "display: block" %>
-    <%= form.time_field :finish %>
-  </div>
-
-  <div>
-    <%= form.label :day, style: "display: block" %>
-    <%= form.select :day, options_for_select(%w[Lunes Martes Miercoles Jueves Viernes Sabado Domingo]) %>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-outline-success"%>
   </div>
 <% end %>
