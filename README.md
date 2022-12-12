@@ -35,11 +35,11 @@ Tambien podemos crear una cuenta de cliente desde el boton que dice, Registrate.
 
 __Diseño__
 
-Uso de bootstrap:
-El uso de bootstrap en este proyecto se realizo con la finalidad de facilitar lo mas posible la tarea de diseño de interfaz, permitiendome asi entregar una aplicacion con buen aspecto y que cumpla con los requisitos de la consigna.
-
 Uso de gemas:
 En este proyecto se usan dos gemas muy populares en el enterno de desarrollo de ruby, estas son devise y cancancan. La primera cubre la tarea de autenticacion y la segunda la de autorizacion. Decidi usar estas gemas porque sostengo que es una solucion mucho mas completa y probada que cualquier propuesta que hubiera podido hacer en el marco del tiempo de la cursada.
+
+Uso de bootstrap:
+El uso de bootstrap en este proyecto se realizo con la finalidad de facilitar lo mas posible la tarea de diseño de interfaz, permitiendome asi entregar una aplicacion con buen aspecto y que cumpla con los requisitos de la consigna.
 
 Privacidad:
 Solo la persona que es propietara de una cuenta (conoce email y contraseña), puede cambiar la ccontraseña de dicha cuenta dentro de la aplicacion. Esto es asi porque desde mi punto de vista, esto previene abusos de permisos y corrupcion de los datos, ya que no se facilita el acceso a cuentas ajenas.
