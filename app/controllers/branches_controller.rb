@@ -26,7 +26,7 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to branch_url(@branch), notice: "Branch was successfully created." }
+        format.html { redirect_to branch_url(@branch), notice: "La Sucursal fue creada con exito" }
         format.json { render :show, status: :created, location: @branch }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class BranchesController < ApplicationController
   def update
     respond_to do |format|
       if @branch.update(branch_params)
-        format.html { redirect_to branch_url(@branch), notice: "Branch was successfully updated." }
+        format.html { redirect_to branch_url(@branch), notice: "La Sucursal fue actualizada con exito" }
         format.json { render :show, status: :ok, location: @branch }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class BranchesController < ApplicationController
         format.json { head :no_content }
       end
     else
-      redirect_to branches_url, notice: "La sucursal no puede ser borrada, hay turnos pendientes"
+      redirect_to branches_url, notice: "No se puede borrar una sucursal con turnos pendientes"
     end
   end
 

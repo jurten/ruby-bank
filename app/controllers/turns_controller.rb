@@ -28,7 +28,7 @@ class TurnsController < ApplicationController
 
     respond_to do |format|
       if @turn.save
-        format.html { redirect_to turn_url(@turn), notice: "Turn was successfully created." }
+        format.html { redirect_to turn_url(@turn), notice: "El Turno fue creado con exito" }
         format.json { render :show, status: :created, location: @turn }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class TurnsController < ApplicationController
     end
     respond_to do |format|
       if @turn.update(turn_data)
-        format.html { redirect_to turn_url(@turn), notice: "Turn was successfully updated." }
+        format.html { redirect_to turn_url(@turn), notice: "El Turno fue actualizado con exito" }
         format.json { render :show, status: :ok, location: @turn }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class TurnsController < ApplicationController
     @turn.destroy
 
     respond_to do |format|
-      format.html { redirect_to turns_url, notice: "Turn was successfully destroyed." }
+      format.html { redirect_to turns_url, notice: "El Turno fue borrado con exito" }
       format.json { head :no_content }
     end
   end
