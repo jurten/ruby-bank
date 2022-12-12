@@ -1,7 +1,7 @@
 <%= form_with(model: schedule) do |form| %>
   <% if schedule.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+      <h2><%= pluralize(schedule.errors.count, "error(es)") %> impidieron que se guarde el horario:</h2>
 
       <ul>
         <% schedule.errors.each do |error| %>
@@ -35,6 +35,6 @@
   </div>
 
   <div>
-    <%= form.submit class:"btn btn-outline-success"%>
+    <%= form.submit "Guardar", class:"btn btn-outline-success"%>
   </div>
 <% end %>

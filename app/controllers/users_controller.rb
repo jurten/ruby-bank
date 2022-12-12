@@ -42,7 +42,11 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to users_url, notice: "El Usuario fue creado con exito" }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        if user_params[:branch_id] != nil
+          format.html { render :admin_new, status: :unprocessable_entity }
+        else
+          format.html { render :staff_new, status: :unprocessable_entity }
+        end
       end
     end
   end
